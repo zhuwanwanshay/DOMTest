@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+	<title>省市级联下拉列表</title>
+</head>
+<body>
+	<h2>省市级联下拉列表</h2>
+	<select id="provinces" onchange="changeCity(this.value)">
+		<option value="-1">--请选择--</option>
+	</select>
+	<select id="citys">
+		<option value="-1">--请选择--</option>
+	</select>
+	<script type="text/javascript">
+		var ps = ['陕西省','四川省','河北省'];
+		var cs = [['西安','汉中','咸阳'],['绵阳','遂宁','成都'],['唐山','天津']];
+		var fragment = document.createDocumentFragment();
+		for(var i=0; i<ps.length; i++){ 
+			var option = document.createElement('option');
+			option.setAttribute('value',i);
+			option.innerHTML = ps[i];
+			fragment.appendChild(option);
+		}
+		document.getElementById('provinces').appendChild(fragment);
+		//添加地级市
+		function changeCity(pno){ 
+			if(pno==-1){ 
+				return;
+			}
+			//删除下拉框中已有的地级市
+			var cSelect = document.getElementById('citys');
+			/*while(cSelect.children.length>0){ 
+				cSelect.removeChild(cSelect.lastElementChild);
+			}*/
+			cSelect.innerHTML = '';
+			var cityArr = cs[pno];
+			var fragment = document.createDocumentFragment();
+			for( var i=0; i<cityArr.length; i++){ 
+				var option = document.createElement('option');
+				option.setAttribute('value',i);
+				option.innerHTML = cityArr[i];
+				fragment.appendChild(option);
+			}
+			document.getElementById('citys').appendChild(fragment);
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="" content="" charset="utf-8"/>
+	<title>弹出一个在屏幕居中的窗口</title>
+</head>
+<body>
+	<button onclick="openWin()">弹出一个在屏幕居中的窗口</button>
+	<script type="text/javascript">
+		function openWin(){ 
+			var totalWidth = screen.availWidth;
+			var totalHeight = screen.availHeight;
+			var winWidth = 400;
+			var winHeight = 300;
+			var left = (totalWidth-winWidth)/2;
+			var top = (totalHeight-winHeight)/2;
+			open(
+				'http://www.baidu.com/',
+				'newWindow',
+				'width='+winWidth+',height='+winHeight+',top='+top+',left='+left
+			);
+		}
+	</script>
+</body>
+</html>

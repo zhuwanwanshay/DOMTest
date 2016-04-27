@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>隔行变色</title>
+</head>
+<body>
+	<table id="mytable">
+		<tr><td>第1行</td><td>第1列</td></tr>
+		<tr><td>第2行</td><td>第2列</td></tr>
+		<tr><td>第3行</td><td>第3列</td></tr>
+		<tr><td>第4行</td><td>第4列</td></tr>
+		<tr><td>第5行</td><td>第5列</td></tr>
+	</table>
+	<script language="javascript">
+		window.onload=function showtable(){
+			var tablename=document.getElementById("mytable");
+			var li=tablename.getElementsByTagName("tr");
+			for (var i=0;i<=li.length;i++){
+				if (i%2==0){
+					li[i].style.backgroundColor="#FFB584";
+				}else li[i].style.backgroundColor="#FFFFFF";
+			}
+		}
+	</script>
+</body>
+</html>

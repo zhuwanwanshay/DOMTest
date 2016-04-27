@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "utf-8"/>
+	<title>隔行变色</title>
+	<style type="text/css">
+		thead tr{ 
+			background: #aaf;
+		}
+	</style>
+</head>
+<body>
+	<table id="empData" border="1" width="500px"> 
+		<thead>
+			<tr><th>编号</th><th>姓名</th><th>成绩</th></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>001</td>
+				<td>张三</td>
+				<td>90</td>
+			</tr>
+			<tr>
+				<td>002</td>
+				<td>李四</td>
+				<td>95</td>
+			</tr>
+			<tr>
+				<td>003</td>
+				<td>王五</td>
+				<td>75</td>
+			</tr>
+			<tr>
+				<td>004</td>
+				<td>朱六</td>
+				<td>61</td>
+			</tr>
+			<tr>
+				<td>005</td>
+				<td>麻子</td>
+				<td>78</td>
+			</tr>
+		</tbody>
+
+	</table>
+<script type="text/javascript">
+	var table = document.getElementById('empData');
+	var tbody = table.getElementsByTagName('tbody')[0];
+	var trList = tbody.getElementsByTagName('tr');
+	//var trList = document.querySelectorAll("#empData tobady tr");
+
+	for(var i=0; i<trList.length; i++){ 
+		if(i%2==0){ 
+			var tr = trList[i];
+			tr.style.background = '#aaa';
+		}
+	}
+</script>
+</body>
+</html>

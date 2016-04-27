@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="" content="" charset="utf-8"/>
+	<title>可暂停的时钟</title>
+	<style type="text/css">
+		.digitalClock{ 
+			font-size: 26px;
+			color: red;
+			font-family: "微软雅黑";
+		}
+	</style>
+</head>
+<body>
+	<h2>可暂停的时钟</h2>
+	<div class="digitalClock">12:00:00</div>
+	<button onclick="startClock()">启动时钟</button>
+	<button onclick="pauseClock()">暂停时钟</button>
+	<script type="text/javascript"> 		
+ 		function drawClock(){ 
+ 			var now = new Date();
+	 		var h = now.getHours();
+	 		var m = now.getMinutes();
+	 		var s = now.getSeconds();
+	 		document.getElementsByClassName('digitalClock')[0].innerHTML = h+':'+m+':'+s;	
+	 	}		
+ 		var timer1 = null;//定时器的引用
+ 		function startClock(){ 
+ 			//启动定时器，每隔1s绘制一次时间
+ 			timer1 = setInterval(drawClock,1000);
+ 		}
+ 		function pauseClock(){ 
+ 			if(timer1){ 
+ 				clearInterval(timer1);
+ 			}
+ 		}
+	</script>
+</body>
+</html>

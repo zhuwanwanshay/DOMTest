@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="" content="" charset="utf-8"/>
+	<title>自动页面跳转</title>
+	<style type="text/css">
+		#cnt{
+			color: red; 
+		}
+	</style>
+</head>
+<body>
+	<!--<h2>登录成功</h2>
+	<h3>欢迎回来！3秒钟后将自动跳转到首页...</h3>
+	<script type="text/javascript">
+		function jump(){ 
+			window.location.href = 'http://www.baidu.com';
+		}
+		setTimeout(jump,2000);
+	</script>-->
+	<h2>登录成功</h2>
+	<h3>欢迎回来！<span id='cnt'>3</span>秒钟之后页面将跳转转到百度。。。</h3>
+	<script type="text/javascript">
+	var count = 2;
+	function  jump(){ 
+		if(count>=0){ 
+			document.getElementById('cnt').innerHTML = count;
+			count--;
+		}else{ 
+			location.href='http://www.baidu.com';
+		}
+	}
+	setInterval(jump,1000);
+	</script>
+</body>
+</html>

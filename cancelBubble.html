@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="texy/html,charset=utf-8"/>
+	<title>事件冒泡</title>
+</head>
+<body>
+	<div style="background:#aaf;width:100px;height:500px;" onclick="console.log('div3')">
+		<div style="background:#afa;width:100px;height:300px;" onclick="console.log('div2')">
+			<div style="background: #aaa;width:100px;height:100px;" onclick="console.log('div1');">
+				<button onclick="btn()">按钮</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function btn(){ 
+			console.log('btn');
+			event.cancelBubble = true;//取消事件冒泡
+		}
+	</script>
+</body>
+</html>

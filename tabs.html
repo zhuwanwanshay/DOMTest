@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tagPages</title>
+	<style type="text/css">
+	.tab{ 
+		width: 150px;
+		height: 50px;
+		border: 1px solid #aaa;
+		float: left;
+		border-bottom: none;
+		text-align: center;
+		line-height: 50px;
+		cursor: pointer;
+	}
+	.pageContainer{ 
+		position: relative;
+		clear: both;		
+	}
+	.page{ 
+		position: absolute;
+		width: 453px;
+		height: 500px;
+		top: 0;
+		left: 0;
+		border: 1px solid #aaa;
+	}
+	#tab0,#page0{ 
+		background: #faa;
+	}
+	#tab1,#page1{ 
+		background: #afa;
+	}
+	#tab2,#page2{ 
+		background: #aaf;
+	}
+	.topPage{ 
+		z-index: 1;
+	}
+	</style>
+</head>
+<body>
+	<h2>多标签页效果</h2>
+	<div id="tab0" class="tab" onclick="showPage(0)">新闻</div>
+	<div id="tab1" class="tab" onclick="showPage(1)">军事</div>
+	<div id="tab2" class="tab" onclick="showPage(2)">娱乐</div>
+	<div class="pageContainer">
+		<div id="page0" class="page topPage">韩剧《太阳的后裔》大势来袭</div>
+	    <div id="page1" class="page">朝鲜不顾各国反对坚持持有核武器</div>
+	    <div id="page2" class="page">QQ音乐盛典漏洞百出</div>
+	</div>
+	<script type="text/javascript">
+		function showPage(num){
+			//把其他标签页的class改为page
+			var container = document.getElementsByClassName('pageContainer')[0];
+			var divList = container.getElementsByTagName('div');
+			for(var i=0; i<divList.length; i++){ 
+				if(i!=num){ 
+					var div = divList[i];
+					if(div.getAttribute('class')!='page'){ 
+						var classNode = document.createAttribute('class');
+						classNode.value = 'page';
+						div.setAttributeNode(classNode);
+					} 
+				}
+			}
+			//把待显示的标签页的class改为page topPage
+			var pageDiv = document.getElementById('page'+num);
+			var classNode = document.createAttribute('class');
+			classNode.value = "page topPage";
+			pageDiv.setAttributeNode(classNode);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html,charset=utf-8"/>
+	<title>管理照片</title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<button onclick="addPhoto()">添加更多</button>
+	<div id="photoContainer">
+		<div class="aphoto">
+			<input type="file" name="myphoto"/><button onclick="removePhoto()">删除</button>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function addPhoto(){ 
+			var inputFile = document.createElement('input');
+			inputFile.setAttribute('type','file');
+			inputFile.setAttribute('name','myphoto');
+			var inputBtn = document.createElement('button');
+			inputBtn.setAttribute('onclick','removePhoto()');
+			inputBtn.innerHTML = '删除';
+			var newDiv = document.createElement('div');
+			newDiv.setAttribute('class','aphoto');
+
+			newDiv.appendChild(inputFile);
+			newDiv.appendChild(inputBtn);
+
+			document.getElementById('photoContainer').appendChild(newDiv);
+		}
+
+	</script>
+</body>
+</html>

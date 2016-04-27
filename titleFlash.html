@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="" content="" charset="utf-8"/>
+	<title>闪烁的标题栏</title>
+</head>
+<body>
+	<p>标题栏有闪呦~~</p>
+	<script type="text/javascript">
+		var count = 0;
+		function changetitle(){ 
+			if(count==0){ 
+				count = 1;
+				document.title = '☆☆莎莎最美☆☆';
+			}else{ 
+				count = 0;
+				document.title = '★★莎莎最美★★';
+			}
+		}
+		changetitle();
+		setInterval(changetitle,500);
+	</script>
+</body>
+</html>
